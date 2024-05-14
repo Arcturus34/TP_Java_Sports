@@ -1,22 +1,17 @@
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
         PolySportsDatabase Data = PolySportsDatabase.getInstance();
         Data.connect();
-        Statement myStatement = Data.createStatement();
-        ResultSet results = myStatement.executeQuery("SELECT * FROM sport");
-
-            while(results.next())
-            {
-                final String name = results.getString("name");
-                final int participants = results.getInt("required_participants");
-
-                System.out.println(name+", participants requis: "+participants);
-            }
-
-            
+        SportsDAO sport = new SportsDAO(Data);
+        Scanner myScanner = new Scanner(System.in);
+        String input = myScanner.nextLine();
+        ArrayList<Sport> sports = sport.findByName(input);
+        for(int i = 0; i < sports.size(); i++){
+            System.out.println(sports.get(i).getName()+" : "+sports.get(i).getRequiredParticipants());
+        }
     }
 }
