@@ -25,7 +25,7 @@ public class MYSQLDatabase {
     public void connect(){
         try{
             connection = DriverManager.getConnection(
-            "jdbc:mysql://"+host+":"+port+"/"+databaseName,
+            "jdbc:mysql://"+host+":"+port+"/"+databaseName+"?allowMultiQueries=TRUE",
             user,
             password
             );

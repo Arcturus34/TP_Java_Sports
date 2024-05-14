@@ -13,7 +13,7 @@ public class SportsDAO {
         ArrayList<Sport> sports = new ArrayList<Sport>();
         Statement myStatement = database.createStatement();
         try{
-            ResultSet results = myStatement.executeQuery("SELECT * FROM sport");
+            ResultSet results = myStatement.executeQuery("SELECT * FROM sport;");
 
             while(results.next())
             {
@@ -35,7 +35,7 @@ public class SportsDAO {
     public Sport findById(int ID){
         Statement myStatement = database.createStatement();
         try{
-            ResultSet results = myStatement.executeQuery("SELECT * FROM sport WHERE id = "+ID);
+            ResultSet results = myStatement.executeQuery("SELECT * FROM sport WHERE id = "+ID+";");
             while(results.next())
             {
                 final int id = results.getInt("id");
@@ -58,7 +58,7 @@ public class SportsDAO {
         ArrayList<Sport> sports = new ArrayList<Sport>();
         Statement myStatement = database.createStatement();
         try{
-            ResultSet results = myStatement.executeQuery("SELECT * FROM sport WHERE name LIKE '"+Name+"%'");
+            ResultSet results = myStatement.executeQuery("SELECT * FROM sport WHERE name LIKE '%"+Name+"%';");
 
             while(results.next())
             {
