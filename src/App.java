@@ -13,5 +13,6 @@ public class App {
         for(int i = 0; i < sports.size(); i++){
             System.out.println(sports.get(i).getName()+" : "+sports.get(i).getRequiredParticipants());
         }
+        myScanner.close();
     }
 }

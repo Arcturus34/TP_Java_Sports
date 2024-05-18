@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class MYSQLDatabase {
@@ -56,5 +57,17 @@ public class MYSQLDatabase {
                 System.err.println(e.getMessage());
             }
         }
+    }
+
+    public PreparedStatement preparedStatement(String requete){
+        try{
+            PreparedStatement statement = connection.prepareStatement(requete);
+            return statement;
+        }
+        catch(Exception e){
+            System.err.println(e.getMessage());
+            return null;
+        }
+        
     }
 }
