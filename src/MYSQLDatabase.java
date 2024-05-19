@@ -4,11 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class MYSQLDatabase {
-    private String host;
-    private int port;
-    private String databaseName;
-    private String user;
-    private String password;
+    final private String host;
+    final private int port;
+    final private String databaseName;
+    final private String user;
+    final private String password;
     private Connection connection;
     private static boolean driverLoaded;
 
